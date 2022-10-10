@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/CyclomaticComplexity
 def main # rubocop:disable Metrics/MethodLength
   puts "\nWELCOME TO My CATALOGUE OF THINGS \n"
   menu = [
@@ -43,3 +44,4 @@ def main # rubocop:disable Metrics/MethodLength
 end
 
 main
+# rubocop:enable Metrics/CyclomaticComplexity
