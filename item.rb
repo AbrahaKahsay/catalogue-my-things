@@ -1,3 +1,4 @@
+require_relative 'author'
 class Item
   attr_accessor :genre, :author, :source, :label, :publish_date, :archived
   attr_reader :id
@@ -18,6 +19,7 @@ class Item
 
   def add_author(author)
     @author = author
+    author.items << self
   end
 
   def add_source(source)
@@ -32,6 +34,6 @@ class Item
 
   def can_be_archived?
     current_year = Time.new.year
-    true if current_year - @publish_date >= 10
+    current_year - @publish_date >= 10
   end
 end
