@@ -10,15 +10,15 @@ class Item
   end
 
   def move_to_archive()
-    @archived = true if can_be_archived?
+    @archived = can_be_archived?
   end
 
   def add_genre(genre)
     @genre = genre
   end
 
-  def add_author(author)
-    @author = author
+  def add_author(author_name,author_lastname)
+    @author = Author.new(author_name,author_lastname)
     author.items << self
   end
 
