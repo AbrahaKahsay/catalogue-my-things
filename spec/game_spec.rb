@@ -1,4 +1,4 @@
-require_relative '../game'
+require_relative '../lib/game'
 describe Game do
   context 'test class' do
     before(:each) do

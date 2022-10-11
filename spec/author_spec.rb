@@ -1,4 +1,4 @@
-require_relative '../author'
+require_relative '../lib/author'
 describe Author do
   context 'test class' do
     before(:each) do
