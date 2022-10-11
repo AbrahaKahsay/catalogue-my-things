@@ -3,7 +3,7 @@ class Item
   attr_accessor :genre, :author, :source, :label, :publish_date, :archived
   attr_reader :id
 
-  def initialize(_genre, _author, _source, _label, publish_date)
+  def initialize(publish_date)
     @id = rand(0..400)
     @publish_date = publish_date
     @archived = false
@@ -17,8 +17,8 @@ class Item
     @genre = genre
   end
 
-  def add_author(author_name,author_lastname)
-    @author = Author.new(author_name,author_lastname)
+  def add_author(author_name, author_lastname)
+    @author = Author.new(author_name, author_lastname)
     author.items << self
   end
 
