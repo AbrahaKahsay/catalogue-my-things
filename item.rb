@@ -1,4 +1,4 @@
-require_relative 'author.rb'
+require_relative 'author'
 class Item
   attr_accessor :genre, :author, :source, :label, :publish_date, :archived
   attr_reader :id
@@ -37,8 +37,3 @@ class Item
     current_year - @publish_date >= 10
   end
 end
-
-item1 = Item.new('music',nil,'nil','nil',2020)
-author1 = Author.new('pepito','gonazles')
-item1.add_author(author1)
-p author1.items
