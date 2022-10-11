@@ -30,4 +30,16 @@ class App
       print "Last time played at: #{game.last_played_at} \n"
     end
   end
+
+  def list_all_authors
+    if @authors.length > 0
+    puts "Authors: "
+    @authors.each_with_index do |author, index|
+      print "#{index + 1}) ~ "
+      print "Name: #{author.first_name} #{author.last_name} \n"
+    end
+    else
+    puts "There's no author avalaible"
+    end
+  end
 end

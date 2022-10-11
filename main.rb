@@ -35,7 +35,7 @@ class Main
     when 5
       puts 'pending list of labels'
     when 6
-      puts 'pending list of authors'
+      @app.list_all_authors
     when 7
       puts 'pending add book'
     when 8
