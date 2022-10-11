@@ -21,25 +21,25 @@ class App
     puts 'a game has been created'
   end
 
-  def list_all_games 
-    puts "Games: "
+  def list_all_games
+    puts 'Games: '
     @games.each_with_index do |game, index|
       print "#{index + 1}) ~ "
-      print "publish date: " + game.publish_date
+      print "publish date: #{game.publish_date}"
       print " multiplayer: #{game.multiplayer ? 'Yes' : 'No'} "
       print "Last time played at: #{game.last_played_at} \n"
     end
   end
 
   def list_all_authors
-    if @authors.length > 0
-    puts "Authors: "
-    @authors.each_with_index do |author, index|
-      print "#{index + 1}) ~ "
-      print "Name: #{author.first_name} #{author.last_name} \n"
-    end
+    if @authors.length.positive?
+      puts 'Authors: '
+      @authors.each_with_index do |author, index|
+        print "#{index + 1}) ~ "
+        print "Name: #{author.first_name} #{author.last_name} \n"
+      end
     else
-    puts "There's no author avalaible"
+      puts "There's no author avalaible"
     end
   end
 end
