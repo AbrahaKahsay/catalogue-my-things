@@ -18,6 +18,7 @@ class Item
 
   def add_author(author)
     @author = author
+    author.add_item(self)
   end
 
   def add_source(source)
@@ -32,6 +33,6 @@ class Item
 
   def can_be_archived?
     current_year = Time.new.year
-    true if current_year - @publish_date >= 10
+    current_year - @publish_date >= 10
   end
 end
