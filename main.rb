@@ -25,7 +25,7 @@ class Main
   def input_cases(input)
     case input
     when 1
-      puts 'pending list of books'
+      @app.list_all_books
     when 2
       @app.list_all_games
     when 3
@@ -37,7 +37,7 @@ class Main
     when 6
       @app.list_all_authors
     when 7
-      puts 'pending add book'
+      @app.add_book
     when 8
       @app.add_game
     when 9
