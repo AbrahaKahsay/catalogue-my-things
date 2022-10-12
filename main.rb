@@ -33,7 +33,7 @@ class Main
     when 4
       puts 'pending list of genres'
     when 5
-      puts 'pending list of labels'
+      @app.list_all_labels
     when 6
       @app.list_all_authors
     when 7

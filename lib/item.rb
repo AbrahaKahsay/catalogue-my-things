@@ -1,4 +1,6 @@
-require_relative 'author'
+require_relative './author'
+require_relative './label'
+
 class Item
   attr_accessor :genre, :author, :source, :label, :publish_date, :archived
   attr_reader :id
@@ -26,8 +28,9 @@ class Item
     @source = source
   end
 
-  def add_label(label)
-    @label = label
+  def add_label(title, color)
+    @label = Label.new(title, color)
+    @label.add_item(self)
   end
 
   private
