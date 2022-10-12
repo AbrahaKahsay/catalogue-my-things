@@ -1,8 +1,8 @@
 require_relative './lib/game'
 require_relative './manipulate_data'
 class App
-include PreserveData
-include GetData
+  include PreserveData
+  include GetData
   def initialize
     @authors = []
     @games = []
@@ -14,8 +14,6 @@ include GetData
     print 'Is a multiplayer game? [yes/no]: '
     multiplayer = case gets.chomp.downcase
                   when 'yes'
-                    true
-                  when true
                     true
                   else
                     false
@@ -54,7 +52,7 @@ include GetData
   end
 
   def fetch_data
-    get_games
-    get_authors
-    end
+    fetch_games
+    fetch_authors
+  end
 end
