@@ -47,6 +47,7 @@ class Main
 
   def run
     puts "\nWELCOME TO My CATALOGUE OF THINGS \n"
+    @app.fetch_data
     options
     input = gets.chomp.to_i
     while input != 10
@@ -54,6 +55,7 @@ class Main
       options
       input = gets.chomp.to_i
     end
+    @app.preserve_data
   end
 end
 
