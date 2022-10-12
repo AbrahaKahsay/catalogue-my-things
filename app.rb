@@ -1,5 +1,8 @@
 require_relative './lib/game'
+require_relative './manipulate_data'
 class App
+  include PreserveData
+  include GetData
   def initialize
     @authors = []
     @games = []
@@ -8,8 +11,8 @@ class App
   def add_game
     print 'introduce publish date: '
     publish_date = gets.chomp
-    print 'Is a multiplayer game?: '
-    multiplayer = case gets.chomp
+    print 'Is a multiplayer game? [yes/no]: '
+    multiplayer = case gets.chomp.downcase
                   when 'yes'
                     true
                   else
@@ -25,8 +28,8 @@ class App
     puts 'Games: '
     @games.each_with_index do |game, index|
       print "#{index + 1}) ~ "
-      print "publish date: #{game.publish_date}"
-      print " multiplayer: #{game.multiplayer ? 'Yes' : 'No'} "
+      print "publish date: #{game.publish_date} ~ "
+      print " multiplayer: #{game.multiplayer ? 'Yes' : 'No'} ~ "
       print "Last time played at: #{game.last_played_at} \n"
     end
   end
@@ -41,5 +44,15 @@ class App
     else
       puts "There's no author avalaible"
     end
+  end
+
+  def preserve_data
+    preserve_games
+    preserve_authors
+  end
+
+  def fetch_data
+    fetch_games
+    fetch_authors
   end
 end
