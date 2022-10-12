@@ -65,7 +65,8 @@ class App
   def list_all_books
     puts 'List of all the Books Saved:'
     @books.each_with_index do |book, index|
-      puts "#{index}) Title: #{book.title}, Author: #{book.author.first_name} #{book.author.last_name}, Publish Date: #{book.publish_date}"
+      puts "#{index}) Title: #{book.title}, Author: #{book.author.first_name} #{book.author.last_name},
+      Publish Date: #{book.publish_date}"
     end
   end
 
@@ -92,7 +93,7 @@ class App
   end
 
   def list_all_labels
-    if @labels.length > 0
+    if @labels.length.positive?
       puts 'These are all your Labels: '
       @labels.each_with_index do |label, index|
         puts "#{index}) #{label.title}, #{label.color}, Belongs to: #{label.items[0].class} #{label.items[0].title}"
