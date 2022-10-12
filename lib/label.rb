@@ -10,6 +10,6 @@ class Label
 
   def add_item(item)
     @items.push(item)
-    item.author = self
+    item.label = self
   end
 end

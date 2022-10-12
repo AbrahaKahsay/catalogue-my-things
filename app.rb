@@ -9,16 +9,16 @@ class App
     @authors = []
     @games = []
     @books = []
+    @labels = []
   end
 
   def add_book
     print 'Title: '
-    title = gets.chomp
+    title = gets.chomp.capitalize
     print 'Author First Name: '
-    author_input_first_name = gets.chomp
+    author_input_first_name = gets.chomp.capitalize
     print 'Author Last Name: '
-    author_input_last_name = gets.chomp
-    author = Author.new(author_input_first_name, author_input_last_name)
+    author_input_last_name = gets.chomp.capitalize
     print 'Is the cover in good state? [Y/N]: '
     cover_state = case gets.chomp.downcase
                   when 'y'
@@ -27,14 +27,21 @@ class App
                     'bad'
                   end
     print 'What is the publisher of the book?: '
-    publisher = gets.chop
+    publisher = gets.chop.capitalize
     print 'What is the YEAR when the book was published?: '
     publish_date = gets.chomp.to_i
+    print 'What is the Label Name?: '
+    label_name = gets.chomp.capitalize
+    print 'What is the Label Color?: '
+    label_color = gets.chomp.capitalize
 
     book_created = Book.new(title, publisher, publish_date, cover_state)
-    book_created.author = author
+    book_created.add_author(author_input_first_name, author_input_last_name)
+    book_created.add_label(label_name, label_color)
 
     @books.push(book_created)
+    @labels.push(book_created.label)
+    @authors.push(book_created.author)
 
     puts 'Your Book was created and added succesfully!!!'
   end
@@ -58,7 +65,7 @@ class App
   def list_all_books
     puts 'List of all the Books Saved:'
     @books.each_with_index do |book, index|
-      puts "#{index}) Title: #{book.title} Author: #{book.author.first_name} #{book.author.last_name} Publish Date: #{book.publish_date}"
+      puts "#{index}) Title: #{book.title}, Author: #{book.author.first_name} #{book.author.last_name}, Publish Date: #{book.publish_date}"
     end
   end
 
@@ -81,6 +88,17 @@ class App
       end
     else
       puts "There's no author avalaible"
+    end
+  end
+
+  def list_all_labels
+    if @labels.length > 0
+      puts 'These are all your Labels: '
+      @labels.each_with_index do |label, index|
+        puts "#{index}) #{label.title}, #{label.color}, Belongs to: #{label.items[0].class} #{label.items[0].title}"
+      end
+    else
+      puts 'There are no Labels, please add some'
     end
   end
 
