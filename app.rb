@@ -50,9 +50,11 @@ include GetData
 
   def preserve_data
     preserve_games
+    preserve_authors
   end
 
   def fetch_data
     get_games
+    get_authors
     end
 end
