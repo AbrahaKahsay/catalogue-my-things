@@ -19,12 +19,6 @@ describe Book do
     end
   end
 
-  # context 'Testing Genre and Author properties' do
-  #  it 'Should add Genre properties to the book' do
-
-  # end
-  # end
-
   context 'Testing the can_be_archived method of the Book Class' do
     it 'Should return false if the cover state is good' do
       expect(@new_book.can_be_archived?).to be false
