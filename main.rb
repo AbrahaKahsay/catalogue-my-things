@@ -41,7 +41,7 @@ class Main
     when 8
       @app.add_game
     when 9
-      puts 'pending add music album'
+      @app.add_music_album
     end
   end
 
