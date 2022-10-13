@@ -1,4 +1,5 @@
 require_relative './lib/game'
+require_relative './lib/music_album'
 require_relative './manipulate_data'
 class App
   include PreserveData
