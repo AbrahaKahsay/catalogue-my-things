@@ -29,9 +29,9 @@ class Main
     when 2
       @app.list_all_games
     when 3
-      puts 'pending list of albums'
+      @app.list_all_music_albums
     when 4
-      puts 'pending list of genres'
+      @app.list_all_genres
     when 5
       @app.list_all_labels
     when 6
@@ -41,7 +41,7 @@ class Main
     when 8
       @app.add_game
     when 9
-      puts 'pending add music album'
+      @app.add_music_album
     end
   end
 
