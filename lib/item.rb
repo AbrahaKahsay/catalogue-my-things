@@ -16,8 +16,8 @@ class Item
     @archived = can_be_archived?
   end
 
-  def add_genre(genre)
-    @genre = Genre.new(genre)
+  def add_genre(genre_str)
+    @genre = Genre.new(genre_str)
     genre.items.push(self)
   end
 

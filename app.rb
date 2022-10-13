@@ -33,10 +33,6 @@ class App
     book_created = Book.new(title, publisher, publish_date, cover_state)
     add_default_attributes(book_created)
     @books.push(book_created)
-    @labels.push(book_created.label)
-    @authors.push(book_created.author)
-    @genres.push(book_created.genre)
-
     puts 'Your Book was created and added succesfully!!!'
   end
 
@@ -57,9 +53,6 @@ class App
     new_album = MusicAlbum.new(on_spotify, name, publish_date)
     add_default_attributes(new_album)
     @music_albums << new_album
-    @labels.push(new_album.label)
-    @authors.push(new_album.author)
-    @genres.push(new_album.genre)
     puts 'Your music album has been created'
   end
 
@@ -78,9 +71,6 @@ class App
     new_game = Game.new(publish_date, multiplayer, last_time_played)
     add_default_attributes(new_game)
     @games << new_game
-    @labels.push(new_game.label)
-    @authors.push(new_game.author)
-    @genres.push(new_game.genre)
     puts 'Your new game has been created'
   end
 
@@ -95,18 +85,6 @@ class App
       puts "There's no music album avalaible"
     end
   end
-
-  # def add_a_genre
-  #   if @genres.length.positive?
-  #     print 'Please enter the name: '
-  #     name = gets.chomp.to_s
-  #     genre = Genre.new(name)
-  #     @genres << genre
-  #     puts "a genre of #{genre.name} has been created"
-  #   else
-  #     puts 'There is no genre available'
-  #   end
-  # end
 
   def list_all_genres
     puts 'Genres: '
@@ -183,5 +161,9 @@ class App
     new_item.add_author(author_input_first_name, author_input_last_name)
     new_item.add_label(label_name, label_color)
     new_item.add_genre(genre_name)
+
+    @labels.push(new_item.label)
+    @authors.push(new_item.author)
+    @genres.push(new_item.genre)
   end
 end
