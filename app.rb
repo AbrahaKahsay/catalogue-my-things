@@ -6,6 +6,26 @@ class App
   def initialize
     @authors = []
     @games = []
+    @genres = []
+    @music_albums = []
+  end
+
+  # Add a music album
+  def add_music_album
+    print 'What is the name of the album?: '
+    name = gets.chomp
+    print 'introduce publish date: '
+    publish_date = gets.chomp
+    print 'Is the music album on spotify? [yes/no]: '
+    on_spotify = case gets.chomp.downcase
+                  when 'yes'
+                    true
+                  else
+                    false
+                  end
+    
+    @music_albums << MusicAlbum.new(publish_date, multiplayer, last_time_played)
+    puts 'a game has been created'
   end
 
   def add_game
