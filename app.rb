@@ -19,12 +19,12 @@ class App
     publish_date = gets.chomp
     print 'Is the music album on spotify? [yes/no]: '
     on_spotify = case gets.chomp.downcase
-                  when 'yes'
-                    true
-                  else
-                    false
-                  end
-    
+                 when 'yes'
+                   true
+                 else
+                   false
+                 end
+
     @music_albums << MusicAlbum.new(on_spotify, name, publish_date)
     puts 'a music album of has been created'
   end
