@@ -1,5 +1,4 @@
 require_relative '../lib/genre'
-require_relative '../lib/book'
 
 describe Genre do
   context 'While testing Genre class' do
