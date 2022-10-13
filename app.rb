@@ -24,8 +24,35 @@ class App
                     false
                   end
     
-    @music_albums << MusicAlbum.new(publish_date, multiplayer, last_time_played)
-    puts 'a game has been created'
+    @music_albums << MusicAlbum.new(on_spotify, name, publish_date)
+    puts 'a music album of has been created'
+  end
+
+  def list_all_music_albums
+    if @music_albums.length.positive?
+      puts 'Music Albums: '
+      @music_albums.each_with_index do |music_album, index|
+        print "#{index + 1}) ~ "
+        print "Name: #{music_album.name} #{music_album.publish_date} #{music_album.on_spotify} \n"
+      end
+    else
+      puts "There's no music album avalaible"
+    end
+  end
+
+  def add_a_genre
+    print 'Please enter the name: '
+    name = gets.chomp.to_s
+    genre = Genre.new(name)
+    @genres << genre
+    puts "a genre of #{genre.name} has been created"
+  end
+
+  def list_all_genres
+    puts 'Genres: '
+    @genres.each do |genre|
+      puts "Genre - #{genre.name}"
+    end
   end
 
   def add_game
