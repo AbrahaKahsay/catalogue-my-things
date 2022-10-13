@@ -29,9 +29,9 @@ class Main
     when 2
       @app.list_all_games
     when 3
-      puts 'pending list of albums'
+      @app.list_all_music_albums
     when 4
-      puts 'pending list of genres'
+      @app.list_all_genres
     when 5
       puts 'pending list of labels'
     when 6
