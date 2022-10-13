@@ -101,10 +101,12 @@ class App
   def preserve_data
     preserve_games
     preserve_authors
+    preserve_geners
   end
 
   def fetch_data
     fetch_games
     fetch_authors
+    fetch_genres
   end
 end
