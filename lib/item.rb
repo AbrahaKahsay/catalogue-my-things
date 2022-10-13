@@ -18,7 +18,7 @@ class Item
 
   def add_genre(genre)
     @genre = Genre.new(genre)
-    @genre.add_item(self)
+    genre.items.push(self)
   end
 
   def add_author(author_name, author_lastname)
@@ -32,7 +32,7 @@ class Item
 
   def add_label(title, color)
     @label = Label.new(title, color)
-    @label.add_item(self)
+    label.items.push(self)
   end
 
   private
