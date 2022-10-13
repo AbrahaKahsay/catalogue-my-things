@@ -17,6 +17,7 @@ describe Genre do
 
     it 'should allow Item add itself to genre items' do
       @new_book.add_genre(@genre)
+      puts @genre.items
       expect(@genre.items).not_to be_empty
     end
   end
