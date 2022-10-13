@@ -31,6 +31,31 @@ module PreserveData
       File.write('./data/authors.json', JSON.generate(authors_data))
     end
   end
+  def preserve_music_albums
+    music_albums_data = []
+    @music_albums.each do |music_album|
+      music_albums_data.push(
+        {
+          publish_date: music_album.publish_date,
+          on_spotify: music_album.on_spotify,
+          genre: music_album.genre || nil,
+          name: music_album.name || nil
+        }
+      )
+      File.write('./data/music_albums.json', JSON.generate(music_albums_data))
+    end
+
+  def preserve_geners
+    genres_data = []
+    @genres.each do |genre|
+      genres_data.push(
+        {
+          name: genre.name
+        }
+      )
+      File.write('./data/genres.json', JSON.generate(genres_data))
+    end
+  end
 end
 
 module GetData
@@ -47,6 +72,22 @@ module GetData
 
     JSON.parse(File.read('./data/authors.json')).each do |author|
       @authors << Author.new(author['first_name'], author['last_name'])
+    end
+  end
+
+  def fetch_music_albums
+    return unless File.exist?('./data/music_albums.json')
+
+    JSON.parse(File.read('./data/music_albums.json')).each do |music_album|
+      @music_albums << MusicAlbum.new(music_album['name'], music_album['publish_date'], music_album['on_spotify'] ? 'yes' : false)
+    end
+  end
+
+  def fetch_genres
+    return unless File.exist?('./data/genres.json')
+
+    JSON.parse(File.read('./data/genres.json')).each do |genre|
+      @genres << Genre.new(genre['name'])
     end
   end
 end
