@@ -42,11 +42,15 @@ class App
   end
 
   def add_a_genre
-    print 'Please enter the name: '
-    name = gets.chomp.to_s
-    genre = Genre.new(name)
-    @genres << genre
-    puts "a genre of #{genre.name} has been created"
+    if @genres.length.positive?
+      print 'Please enter the name: '
+      name = gets.chomp.to_s
+      genre = Genre.new(name)
+      @genres << genre
+      puts "a genre of #{genre.name} has been created"
+    else
+      puts 'There is no genre available'
+    end
   end
 
   def list_all_genres
