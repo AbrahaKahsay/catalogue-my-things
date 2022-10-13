@@ -1,7 +1,7 @@
 require_relative '../lib/music_album'
 
 describe MusicAlbum do
-  context 'While testing Genre class' do
+  context 'While testing MusicAlbum class' do
     before :each do
       @new_album = MusicAlbum.new(true, 'Exodus', 1977)
     end
