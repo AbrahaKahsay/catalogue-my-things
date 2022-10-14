@@ -21,4 +21,22 @@
   last_name TEXT,
   items TEXT[],
   PRIMARY KEY(id)
- )
+ );
+
+CREATE TABLE music_album(
+  id INT GENERATED ALWAYS IDENTITY PRIMARY KEY,
+  genre INT,
+  author INT,
+  label INT,
+  publish_date DATE,
+  archived BOOLEAN,
+  on_soptify BOOLEAN,
+  CONSTRAINT genre_fk FOREIGN KEY(genre) REFERENCES genre(id),
+  CONSTRAINT author_fk FOREIGN KEY(author) REFERENCES author(id),
+  CONSTRAINT label_fk FOREIGN KEY(label) REFERENCES label(id)
+  );
+
+  CREATE TABLE genre(
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR
+  );
