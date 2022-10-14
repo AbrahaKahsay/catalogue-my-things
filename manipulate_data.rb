@@ -37,10 +37,10 @@ module PreserveData
     @music_albums.each do |music_album|
       music_albums_data.push(
         {
+          name: music_album.name,
           publish_date: music_album.publish_date,
-          on_spotify: music_album.on_spotify,
-          genre: music_album.genre || nil,
-          name: music_album.name || nil
+          # genre: music_album.genre || nil,
+          on_spotify: music_album.on_spotify
         }
       )
       File.write('./data/music_albums.json', JSON.generate(music_albums_data))
@@ -81,8 +81,9 @@ module GetData
     return unless File.exist?('./data/music_albums.json')
 
     JSON.parse(File.read('./data/music_albums.json')).each do |music_album|
-      @music_albums << MusicAlbum.new(music_album['on_spotify'] ? 'yes' : false, music_album['name'],
-                                      music_album['publish_date'])
+      @music_albums << MusicAlbum.new(music_album['name'],
+                                      music_album['publish_date'],
+                                      music_album['on_spotify'] ? true : false)
     end
   end
 
