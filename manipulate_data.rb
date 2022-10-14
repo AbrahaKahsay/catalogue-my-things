@@ -31,6 +31,7 @@ module PreserveData
       File.write('./data/authors.json', JSON.generate(authors_data))
     end
   end
+
   def preserve_music_albums
     music_albums_data = []
     @music_albums.each do |music_album|
@@ -44,6 +45,7 @@ module PreserveData
       )
       File.write('./data/music_albums.json', JSON.generate(music_albums_data))
     end
+  end
 
   def preserve_geners
     genres_data = []
@@ -79,7 +81,8 @@ module GetData
     return unless File.exist?('./data/music_albums.json')
 
     JSON.parse(File.read('./data/music_albums.json')).each do |music_album|
-      @music_albums << MusicAlbum.new(music_album['name'], music_album['publish_date'], music_album['on_spotify'] ? 'yes' : false)
+      @music_albums << MusicAlbum.new(music_album['on_spotify'] ? 'yes' : false, music_album['name'],
+                                      music_album['publish_date'])
     end
   end
 
