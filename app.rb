@@ -96,8 +96,8 @@ class App
   def list_all_books
     puts 'List of all the Books Saved:'
     @books.each_with_index do |book, index|
-      puts "#{index}) Title: #{book.title}, Author: #{book.author.first_name} #{book.author.last_name},
-      Publish Date: #{book.publish_date}"
+      puts "#{index}) Title: #{book.title}, Publisher: #{book.publisher} Publish Date: #{book.publish_date},
+      Cover State: #{book.cover_state}"
     end
   end
 
@@ -127,7 +127,7 @@ class App
     if @labels.length.positive?
       puts 'These are all your Labels: '
       @labels.each_with_index do |label, index|
-        puts "#{index}) #{label.title}, #{label.color}, Belongs to: #{label.items[0].class} #{label.items[0].title}"
+        puts "#{index}) #{label.title}, #{label.color}"
       end
     else
       puts 'There are no Labels, please add some'
@@ -143,7 +143,9 @@ class App
 
   def fetch_data
     fetch_games
+    fetch_books
     fetch_authors
+    fetch_labels
   end
 
   private

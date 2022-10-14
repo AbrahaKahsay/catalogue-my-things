@@ -1,4 +1,5 @@
 require 'json'
+
 module PreserveData
   def preserve_games
     games_data = []
@@ -39,12 +40,9 @@ module PreserveData
         {
           title: book.title,
           publisher: book.publisher,
-          cover_state: title.cover_state,
+          cover_state: book.cover_state,
           publish_date: book.publish_date,
-          archived: book.archived,
-          genre: book.genre,
-          author: book.author,
-          label: book.label
+          archived: book.archived
         }
       )
       File.write('./data/books.json', JSON.generate(books_data))
@@ -57,9 +55,7 @@ module PreserveData
       labels_data.push(
         {
           title: label.title,
-          color: label.color,
-          id: label.id,
-          items: label.items
+          color: label.color
         }
       )
       File.write('./data/labels.json', JSON.generate(labels_data))
@@ -76,11 +72,28 @@ module GetData
     end
   end
 
+  def fetch_books
+    return unless File.exist?('./data/books.json')
+
+    JSON.parse(File.read('./data/books.json')).each do |book|
+      @books << Book.new(book['title'], book['publisher'],
+                         book['publish_date'], book['cover_state'])
+    end
+  end
+
   def fetch_authors
     return unless File.exist?('./data/authors.json')
 
     JSON.parse(File.read('./data/authors.json')).each do |author|
       @authors << Author.new(author['first_name'], author['last_name'])
+    end
+  end
+
+  def fetch_labels
+    return unless File.exist?('./data/labels.json')
+
+    JSON.parse(File.read('./data/labels.json')).each do |label|
+      @labels << Label.new(label['title'], label['color'])
     end
   end
 end
