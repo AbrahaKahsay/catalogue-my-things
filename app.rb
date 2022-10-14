@@ -136,7 +136,9 @@ class App
 
   def preserve_data
     preserve_games
+    preserve_books
     preserve_authors
+    preserve_labels
   end
 
   def fetch_data
