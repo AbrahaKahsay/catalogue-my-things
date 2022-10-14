@@ -1,4 +1,7 @@
-require_relative 'author'
+require_relative './author'
+require_relative './label'
+require_relative './genre'
+
 class Item
   attr_accessor :genre, :author, :source, :label, :publish_date, :archived
   attr_reader :id
@@ -13,8 +16,8 @@ class Item
     @archived = can_be_archived?
   end
 
-  def add_genre(genre)
-    @genre = genre
+  def add_genre(genre_str)
+    @genre = Genre.new(genre_str)
     genre.items.push(self)
   end
 
@@ -27,8 +30,9 @@ class Item
     @source = source
   end
 
-  def add_label(label)
-    @label = label
+  def add_label(title, color)
+    @label = Label.new(title, color)
+    label.items.push(self)
   end
 
   private

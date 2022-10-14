@@ -1,4 +1,5 @@
 require 'json'
+
 module PreserveData
   def preserve_games
     games_data = []
@@ -15,7 +16,7 @@ module PreserveData
           source: game.source || nil
         }
       )
-      File.write('./data/books.json', JSON.generate(games_data))
+      File.write('./data/games.json', JSON.generate(games_data))
     end
   end
 
@@ -58,6 +59,35 @@ module PreserveData
       File.write('./data/genres.json', JSON.generate(genres_data))
     end
   end
+
+  def preserve_books
+    books_data = []
+    @books.each do |book|
+      books_data.push(
+        {
+          title: book.title,
+          publisher: book.publisher,
+          cover_state: book.cover_state,
+          publish_date: book.publish_date,
+          archived: book.archived
+        }
+      )
+      File.write('./data/books.json', JSON.generate(books_data))
+    end
+  end
+
+  def preserve_labels
+    labels_data = []
+    @labels.each do |label|
+      labels_data.push(
+        {
+          title: label.title,
+          color: label.color
+        }
+      )
+      File.write('./data/labels.json', JSON.generate(labels_data))
+    end
+  end
 end
 
 module GetData
@@ -66,6 +96,15 @@ module GetData
 
     JSON.parse(File.read('./data/games.json')).each do |game|
       @games << Game.new(game['publish_date'], game['multiplayer'] ? 'yes' : false, game['last_played_at'])
+    end
+  end
+
+  def fetch_books
+    return unless File.exist?('./data/books.json')
+
+    JSON.parse(File.read('./data/books.json')).each do |book|
+      @books << Book.new(book['title'], book['publisher'],
+                         book['publish_date'], book['cover_state'])
     end
   end
 
@@ -91,6 +130,11 @@ module GetData
 
     JSON.parse(File.read('./data/genres.json')).each do |genre|
       @genres << Genre.new(genre['name'])
+  def fetch_labels
+    return unless File.exist?('./data/labels.json')
+
+    JSON.parse(File.read('./data/labels.json')).each do |label|
+      @labels << Label.new(label['title'], label['color'])
     end
   end
 end
