@@ -30,7 +30,7 @@ CREATE TABLE music_album(
   label INT,
   publish_date DATE,
   archived BOOLEAN,
-  on_soptify BOOLEAN,
+  on_spotify BOOLEAN,
   CONSTRAINT genre_fk FOREIGN KEY(genre) REFERENCES genre(id),
   CONSTRAINT author_fk FOREIGN KEY(author) REFERENCES author(id),
   CONSTRAINT label_fk FOREIGN KEY(label) REFERENCES label(id)
