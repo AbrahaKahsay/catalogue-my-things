@@ -46,3 +46,23 @@ CREATE TABLE books(
 -- Index to improvve performance of the relationship between labels and books
 
 CREATE INDEX book_label_idx ON books(labels_id);
+
+-- Music album table
+CREATE TABLE music_album(
+  id INT GENERATED ALWAYS IDENTITY PRIMARY KEY,
+  genre INT,
+  author INT,
+  label INT,
+  publish_date DATE,
+  archived BOOLEAN,
+  on_spotify BOOLEAN,
+  CONSTRAINT genre_fk FOREIGN KEY(genre) REFERENCES genre(id),
+  CONSTRAINT author_fk FOREIGN KEY(author) REFERENCES author(id),
+  CONSTRAINT label_fk FOREIGN KEY(label) REFERENCES label(id)
+  );
+
+-- Genre table
+  CREATE TABLE genre(
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR
+  );
