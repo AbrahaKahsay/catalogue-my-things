@@ -16,8 +16,8 @@ describe Genre do
     end
 
     it 'should allow Item add itself to genre items' do
-      @new_book.add_genre(@genre)
-      expect(@genre.items).not_to be_empty
+      @new_book.add_genre('Thriller')
+      expect(@new_book.genre.name).to eql('Thriller')
     end
   end
 end
