@@ -15,7 +15,7 @@ module PreserveData
           source: game.source || nil
         }
       )
-      File.write('./data/books.json', JSON.generate(games_data))
+      File.write('./data/games.json', JSON.generate(games_data))
     end
   end
 
@@ -29,6 +29,40 @@ module PreserveData
         }
       )
       File.write('./data/authors.json', JSON.generate(authors_data))
+    end
+  end
+
+  def preserve_books
+    books_data = []
+    @books.each do |book|
+      books_data.push(
+        {
+          title: book.title,
+          publisher: book.publisher,
+          cover_state: title.cover_state,
+          publish_date: book.publish_date,
+          archived: book.archived,
+          genre: book.genre,
+          author: book.author,
+          label: book.label
+        }
+      )
+      File.write('./data/books.json', JSON.generate(books_data))
+    end
+  end
+
+  def preserve_labels
+    labels_data = []
+    @labels.each do |label|
+      labels_data.push(
+        {
+          title: label.title,
+          color: label.color,
+          id: label.id,
+          items: label.items
+        }
+      )
+      File.write('./data/labels.json', JSON.generate(labels_data))
     end
   end
 end
