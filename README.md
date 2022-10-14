@@ -1,56 +1,47 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Catalogue my things
 
-> Description the project.
+> In this project, we have created a console app that will help to keep a record of different types of things you own: books, music albums, movies, and games. Everything is based on the given UML class diagram. The data is stored in JSON files. Also we have prepared a database with tables structure analogical to program's class structure.
 
 
-## Built With
+## Built With :hammer_and_wrench:
 
-- Major languages
-- Frameworks
-- Technologies used
+- Major languages: Ruby
+- Frameworks: No
+- Technologies used: Rubocop, gem
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://drive.google.com/file/d/1ZO_R2loMoiaBnkUtaMSBhIOlb_7kS5f0/view?usp=sharing)
+
+## Setup
+
+To use this project:
+- Open terminal
+- Clone it in your directory using
+git clone https://github.com/AbrahaKahsay/catalogue-my-things.git
+- Then cd catalogue-my-things
 
 
-## Getting Started
+## Authors :writing_hand: :busts_in_silhouette:
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+:man_technologist: **Williams Colmenares** :writing_hand:
 
-
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
+- GitHub: [@williamscch](https://github.com/williamscch)
+- Twitter: [@wdavidcch](https://twitter.com/wdavidcch)
+- LinkedIn: [@williamscolmenaresch](https://www.linkedin.com/in/williamscolmenaresch/)
 
 
+:man_technologist: **Alejandro Torres** :writing_hand:
 
-## Authors
+- GitHub: [@aizjicod](https://github.com/aizjicod)
 
-👤 **Author1**
+:man_technologist: **Abraha Kahsay** :writing_hand:
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@AbrahaKahsay](https://github.com/AbrahaKahsay)
+- Twitter: [@abraha_ka](https://twitter.com/abraha_ka)
+- LinkedIn: [abraha-kahsay](https://www.linkedin.com/in/abraha-kahsay/)
 
 ## 🤝 Contributing
 
