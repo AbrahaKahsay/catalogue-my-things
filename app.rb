@@ -29,7 +29,6 @@ class App
     publisher = gets.chop.capitalize
     print 'What is the YEAR when the book was published?: '
     publish_date = gets.chomp.to_i
-
     book_created = Book.new(title, publisher, publish_date, cover_state)
     add_default_attributes(book_created)
     @books.push(book_created)
@@ -49,7 +48,6 @@ class App
                  else
                    false
                  end
-
     new_album = MusicAlbum.new(on_spotify, name, publish_date)
     add_default_attributes(new_album)
     @music_albums << new_album
@@ -79,7 +77,9 @@ class App
       puts 'Music Albums: '
       @music_albums.each_with_index do |music_album, index|
         print "#{index + 1}) ~ "
-        print "Name: #{music_album.name} #{music_album.publish_date} #{music_album.on_spotify} \n"
+        print "Name: #{music_album.name}
+         Publish Date: #{music_album.publish_date}
+          Is it on spotify?#{music_album.on_spotify} \n"
       end
     else
       puts "There's no music album avalaible"
@@ -138,6 +138,8 @@ class App
     preserve_games
     preserve_books
     preserve_authors
+    preserve_music_albums
+    preserve_geners
     preserve_labels
   end
 
@@ -146,6 +148,8 @@ class App
     fetch_books
     fetch_authors
     fetch_labels
+    fetch_music_albums
+    fetch_genres
   end
 
   private
