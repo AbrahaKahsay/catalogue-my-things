@@ -78,8 +78,7 @@ module GetData
   end
 
   def fetch_music_albums
-    return unless File.exist?('./data/music_albums.json')
-
+    return unless File.exist?('./data/music_albums.json') && File.empty?('./data/music_albums.json')
     JSON.parse(File.read('./data/music_albums.json')).each do |music_album|
       @music_albums << MusicAlbum.new(music_album['name'],
                                       music_album['publish_date'],
