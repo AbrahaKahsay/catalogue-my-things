@@ -108,7 +108,7 @@ class App
   def fetch_data
     fetch_games
     fetch_authors
-    fetch_music_albums
-    fetch_genres
+    # fetch_music_albums
+    # fetch_genres
   end
 end
